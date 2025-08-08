@@ -1,0 +1,6 @@
+# Ignore generated image manifest (no secrets, but internal bookkeeping)
+assets/images/food/.manifest.json
+
+# Common image caches/temp
+assets/images/food/tmp/
+

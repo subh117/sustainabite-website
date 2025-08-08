@@ -65,19 +65,28 @@
             <h2>Why Choose SustainaBite?</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-icon">🍽️</div>
-                    <h3>Affordable & Safe</h3>
-                    <p>Affordable, nutritious meals that meet strict safety standards</p>
+                    <h3>Transparency</h3>
+                    <p>Every meal clearly displays source, inspection date, and safety status, empowering customers with trusted information.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">♻️</div>
-                    <h3>Zero Waste</h3>
-                    <p>Transform surplus food into valuable resources, minimizing waste</p>
+                    <h3>Variety & Freshness</h3>
+                    <p>Discover an ever-changing menu with diverse cuisines—freshly prepared, safely packaged, and ready to enjoy.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Fair Compensation</h3>
-                    <p>Food partners receive fair compensation for contributions</p>
+                    <h3>Community Impact</h3>
+                    <p>Your orders help feed families in need, support local jobs, and make a measurable difference for the environment.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Hassle-Free Experience</h3>
+                    <p>Easy online ordering, real-time inventory, and professional delivery ensure a seamless and convenient process from selection to doorstep.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Trusted Inspections</h3>
+                    <p>Every meal is passed through a rigorous multi-point inspection by certified professionals, giving you peace of mind about quality and hygiene.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Eco-Friendly Packaging</h3>
+                    <p>Meals are delivered in sustainable, recyclable packaging, minimizing single-use plastic and supporting a greener planet.</p>
                 </div>
             </div>
         </div>
@@ -216,6 +225,9 @@
                         <option value="italian">Italian</option>
                         <option value="continental">Continental</option>
                         <option value="chinese">Chinese</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="thai">Thai</option>
+                        <option value="dessert">Desserts</option>
                     </select>
                     <select id="price-filter" class="form-control">
                         <option value="">All Prices</option>
@@ -226,8 +238,20 @@
                     <select id="source-filter" class="form-control">
                         <option value="">All Sources</option>
                         <option value="golden-palace">Golden Palace Banquet</option>
+                        <option value="spice-garden">Spice Garden Restaurant</option>
+                        <option value="dhaba-corner">Dhaba Corner</option>
                         <option value="italiano">Italiano Restaurant</option>
+                        <option value="bella-roma">Bella Roma Pizzeria</option>
+                        <option value="gusto-italiano">Gusto Italiano</option>
                         <option value="corporate">Corporate Catering Co.</option>
+                        <option value="royal-banquet">Royal Banquet Hall</option>
+                        <option value="elite-catering">Elite Catering Services</option>
+                        <option value="dragon-wok">Dragon Wok Restaurant</option>
+                        <option value="wok-master">Wok Master</option>
+                        <option value="peking-palace">Peking Palace</option>
+                        <option value="taco-bell">Taco Bell</option>
+                        <option value="bangkok-kitchen">Bangkok Kitchen</option>
+                        <option value="sweet-treats">Sweet Treats Bakery</option>
                     </select>
                     <select id="dietary-filter" class="form-control">
                         <option value="">Dietary Restrictions</option>
@@ -239,8 +263,11 @@
                 </div>
             </div>
             <div class="food-grid" id="food-grid">
+                <!-- Indian Cuisine -->
                 <div class="food-card" data-cuisine="indian" data-price="120" data-source="golden-palace" data-dietary="vegetarian">
-                    <div class="food-image">🍛</div>
+<div class="food-image">
+                        <img src="images/biryani.jpeg" alt="Biryani" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
                     <div class="food-details">
                         <h3>Wedding Biryani</h3>
                         <p class="food-source">Source: Golden Palace Banquet</p>
@@ -255,8 +282,50 @@
                         <button class="btn btn--primary btn--full-width add-to-cart" data-id="1">Add to Cart</button>
                     </div>
                 </div>
+
+                <div class="food-card" data-cuisine="indian" data-price="90" data-source="spice-garden" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/butter-chicken.jpeg" alt="Butter Chicken" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Butter Chicken</h3>
+                        <p class="food-source">Source: Spice Garden Restaurant</p>
+                        <div class="price-info">
+                            <span class="original-price">₹280</span>
+                            <span class="our-price">₹90</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 7:15 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-004</p>
+                        <p class="available">12 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('4')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="4">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="indian" data-price="75" data-source="dhaba-corner" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/paneer-tikka.jpeg" alt="Paneer Tikka" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Paneer Tikka Masala</h3>
+                        <p class="food-source">Source: Dhaba Corner</p>
+                        <div class="price-info">
+                            <span class="original-price">₹220</span>
+                            <span class="our-price">₹75</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:30 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-005</p>
+                        <p class="available">18 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('5')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="5">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Italian Cuisine -->
                 <div class="food-card" data-cuisine="italian" data-price="180" data-source="italiano" data-dietary="vegetarian">
-                    <div class="food-image">🍝</div>
+<div class="food-image">
+                        <img src="images/pasta-primavera.jpeg" alt="Pasta Primavera" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
                     <div class="food-details">
                         <h3>Fresh Pasta Primavera</h3>
                         <p class="food-source">Source: Italiano Restaurant</p>
@@ -271,8 +340,50 @@
                         <button class="btn btn--primary btn--full-width add-to-cart" data-id="2">Add to Cart</button>
                     </div>
                 </div>
+
+                <div class="food-card" data-cuisine="italian" data-price="160" data-source="bella-roma" data-dietary="">
+<div class="food-image">
+                        <img src="images/margherita.jpeg" alt="Margherita Pizza" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Margherita Pizza</h3>
+                        <p class="food-source">Source: Bella Roma Pizzeria</p>
+                        <div class="price-info">
+                            <span class="original-price">₹400</span>
+                            <span class="our-price">₹160</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 8:00 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-006</p>
+                        <p class="available">10 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('6')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="6">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="italian" data-price="140" data-source="gusto-italiano" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/risotto.jpeg" alt="Risotto" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Mushroom Risotto</h3>
+                        <p class="food-source">Source: Gusto Italiano</p>
+                        <div class="price-info">
+                            <span class="original-price">₹350</span>
+                            <span class="our-price">₹140</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:45 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-007</p>
+                        <p class="available">14 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('7')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="7">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Continental Cuisine -->
                 <div class="food-card" data-cuisine="continental" data-price="140" data-source="corporate" data-dietary="">
-                    <div class="food-image">🍗</div>
+<div class="food-image">
+                        <img src="images/grilled-chicken.jpeg" alt="Grilled Chicken" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
                     <div class="food-details">
                         <h3>Grilled Chicken Combo</h3>
                         <p class="food-source">Source: Corporate Catering Co.</p>
@@ -285,6 +396,162 @@
                         <p class="available">22 portions available</p>
                         <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('3')">View Details</button>
                         <button class="btn btn--primary btn--full-width add-to-cart" data-id="3">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="continental" data-price="110" data-source="royal-banquet" data-dietary="">
+<div class="food-image">
+                        <img src="images/beef-steak.jpeg" alt="Beef Steak" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Grilled Beef Steak</h3>
+                        <p class="food-source">Source: Royal Banquet Hall</p>
+                        <div class="price-info">
+                            <span class="original-price">₹500</span>
+                            <span class="our-price">₹110</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 7:00 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-008</p>
+                        <p class="available">6 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('8')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="8">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="continental" data-price="95" data-source="elite-catering" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/caesar-salad.jpeg" alt="Caesar Salad" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Caesar Salad Bowl</h3>
+                        <p class="food-source">Source: Elite Catering Services</p>
+                        <div class="price-info">
+                            <span class="original-price">₹250</span>
+                            <span class="our-price">₹95</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:15 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-009</p>
+                        <p class="available">25 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('9')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="9">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Chinese Cuisine -->
+                <div class="food-card" data-cuisine="chinese" data-price="85" data-source="dragon-wok" data-dietary="">
+<div class="food-image">
+                        <img src="images/fried-rice.jpeg" alt="Fried Rice" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Chicken Fried Rice</h3>
+                        <p class="food-source">Source: Dragon Wok Restaurant</p>
+                        <div class="price-info">
+                            <span class="original-price">₹200</span>
+                            <span class="our-price">₹85</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 7:45 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-010</p>
+                        <p class="available">20 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('10')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="10">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="chinese" data-price="70" data-source="wok-master" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/veg-noodles.jpeg" alt="Veg Noodles" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Vegetable Noodles</h3>
+                        <p class="food-source">Source: Wok Master</p>
+                        <div class="price-info">
+                            <span class="original-price">₹180</span>
+                            <span class="our-price">₹70</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:20 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-011</p>
+                        <p class="available">16 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('11')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="11">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="food-card" data-cuisine="chinese" data-price="100" data-source="peking-palace" data-dietary="">
+<div class="food-image">
+                        <img src="images/sweet-sour.jpeg" alt="Sweet &amp; Sour" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Sweet & Sour Chicken</h3>
+                        <p class="food-source">Source: Peking Palace</p>
+                        <div class="price-info">
+                            <span class="original-price">₹280</span>
+                            <span class="our-price">₹100</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 7:10 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-012</p>
+                        <p class="available">12 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('12')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="12">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Mexican Cuisine -->
+                <div class="food-card" data-cuisine="mexican" data-price="95" data-source="taco-bell" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/veg-tacos.jpeg" alt="Veg Tacos" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Vegetarian Tacos</h3>
+                        <p class="food-source">Source: Taco Bell</p>
+                        <div class="price-info">
+                            <span class="original-price">₹240</span>
+                            <span class="our-price">₹95</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:50 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-013</p>
+                        <p class="available">18 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('13')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="13">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Thai Cuisine -->
+                <div class="food-card" data-cuisine="thai" data-price="110" data-source="bangkok-kitchen" data-dietary="">
+                    <div class="food-image">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" alt="Pad Thai">
+                    </div>
+                    <div class="food-details">
+                        <h3>Chicken Pad Thai</h3>
+                        <p class="food-source">Source: Bangkok Kitchen</p>
+                        <div class="price-info">
+                            <span class="original-price">₹320</span>
+                            <span class="our-price">₹110</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 7:25 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-014</p>
+                        <p class="available">14 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('14')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="14">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="food-card" data-cuisine="dessert" data-price="60" data-source="sweet-treats" data-dietary="vegetarian">
+<div class="food-image">
+                        <img src="images/chocolate-cake.jpeg" alt="Chocolate Cake" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                    </div>
+                    <div class="food-details">
+                        <h3>Chocolate Cake Slice</h3>
+                        <p class="food-source">Source: Sweet Treats Bakery</p>
+                        <div class="price-info">
+                            <span class="original-price">₹150</span>
+                            <span class="our-price">₹60</span>
+                        </div>
+                        <p class="inspection-info">✅ Inspected: Today, 6:40 PM</p>
+                        <p class="transparency-info">🏷️ Safety ID: SB2025-015</p>
+                        <p class="available">30 portions available</p>
+                        <button class="btn btn--secondary btn--full-width food-details-btn" onclick="showFoodDetails('15')">View Details</button>
+                        <button class="btn btn--primary btn--full-width add-to-cart" data-id="15">Add to Cart</button>
                     </div>
                 </div>
             </div>

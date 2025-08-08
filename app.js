@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add interactive hover effects
     addHoverEffects();
+
+    // Ensure food images load or gracefully fall back
+    fixFoodImages();
 });
 
 // FAQ Accordion - Fixed
@@ -506,6 +509,79 @@ function addScrollToTop() {
     
     scrollButton.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Fix external food images: set safe referrer policy and add fallback
+function fixFoodImages() {
+    const imgs = document.querySelectorAll('.food-image img');
+
+    // Build a simple inline SVG placeholder so we don't depend on external files
+    const placeholderSVG = (w = 400, h = 300, label = 'Image unavailable') => {
+        const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#1f2937'/>
+      <stop offset='100%' stop-color='#111827'/>
+    </linearGradient>
+  </defs>
+  <rect width='100%' height='100%' fill='url(#g)'/>
+  <g fill='none' stroke='#00ff41' stroke-width='3' opacity='0.35'>
+    <rect x='10' y='10' width='${w-20}' height='${h-20}' rx='12'/>
+  </g>
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI, Roboto, sans-serif' font-size='18' fill='#9CA3AF'>
+    ${label}
+  </text>
+  <text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI, Roboto, sans-serif' font-size='14' fill='#6B7280'>
+    Tap to add to cart
+  </text>
+</svg>`;
+        return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    };
+
+    imgs.forEach(img => {
+        // Encourage better loading
+        img.setAttribute('loading', 'lazy');
+        // Help with external CDNs that dislike referrers
+        img.setAttribute('referrerpolicy', 'no-referrer');
+        img.setAttribute('crossorigin', 'anonymous');
+
+        // Track whether we've attempted an extension swap already
+        let triedAlternateExt = false;
+
+        // If the image fails to load, first try swapping .jpg <-> .jpeg, then fallback to placeholder
+        const onError = () => {
+            const currentSrc = img.getAttribute('src') || '';
+            // Attempt extension swap only once to avoid loops
+            if (!triedAlternateExt && currentSrc) {
+                const lower = currentSrc.toLowerCase();
+                let altSrc = null;
+                if (lower.endsWith('.jpg')) {
+                    altSrc = currentSrc.slice(0, -4) + '.jpeg';
+                } else if (lower.endsWith('.jpeg')) {
+                    altSrc = currentSrc.slice(0, -5) + '.jpg';
+                }
+                if (altSrc) {
+                    triedAlternateExt = true;
+                    // Keep error handler for possible second failure
+                    img.removeAttribute('srcset');
+                    img.setAttribute('src', altSrc);
+                    return;
+                }
+            }
+            // Final fallback: inline SVG placeholder
+            img.removeEventListener('error', onError); // avoid infinite loop if placeholder errors
+            img.removeAttribute('srcset');
+            img.src = placeholderSVG(img.clientWidth || 400, img.clientHeight || 300);
+        };
+        img.addEventListener('error', onError);
+
+        // If already in an error/broken state (cached), force reload to trigger handler
+        if (img.complete && img.naturalWidth === 0) {
+            // Trigger error path immediately
+            onError();
+        }
     });
 }
 
